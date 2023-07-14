@@ -5,7 +5,7 @@ class FeedManager extends RESTManager {
         return await this.request('/api/v1/feed/text_post_app_timeline/', {
             method: 'POST',
             body: 'pagination_source=text_post_feed_threads' + (max_id ? '&max_id=' + encodeURIComponent(max_id) : ''),
-        })
+        });
     }
 
     async fetchThreads(user, max_id) {
@@ -36,7 +36,7 @@ class FeedManager extends RESTManager {
             mark_as_seen: false,
             timezone_offset: -25200,
             timezone_name: "America%2FLos_Angeles"
-        }
+        };
 
         if (filter) {
             params.selected_filters = filter;
@@ -55,7 +55,7 @@ class FeedManager extends RESTManager {
     async notificationseen() {
         return await this.request('/api/v1/text_feed/text_app_inbox_seen/', {
             method: 'POST',
-        })
+        });
     }
 }
 
